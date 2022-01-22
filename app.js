@@ -40,6 +40,7 @@ app.set("port", port);
 
 // Log requests, using an appropriate formatter by env
 const devEnv = app.get("env") === "development";
+console.log("devEnv", devEnv);
 app.use(morgan(devEnv ? "dev" : "combined"));
 
 // Configure Handlebars
