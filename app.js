@@ -34,6 +34,7 @@ import { addServerSideRendering } from "./server-side-rendering";
 console.log("1");
 const app = express();
 console.log("2");
+console.log(app.get("env"));
 const addon = ace(app);
 
 console.log("3");
@@ -41,7 +42,6 @@ console.log("3");
 const port = addon.config.port();
 app.set("port", port);
 console.log("4");
-
 
 // Log requests, using an appropriate formatter by env
 const devEnv = app.get("env") === "development";
