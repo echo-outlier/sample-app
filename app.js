@@ -1,104 +1,112 @@
-// // Entry point for the app
+// Entry point for the app
 
-// // Express is the underlying that atlassian-connect-express uses:
-// // https://expressjs.com
-// import express from "express";
+// Express is the underlying that atlassian-connect-express uses:
+// https://expressjs.com
+import express from "express";
 
-// // https://expressjs.com/en/guide/using-middleware.html
-// import bodyParser from "body-parser";
-// import compression from "compression";
-// import cookieParser from "cookie-parser";
-// import errorHandler from "errorhandler";
-// import morgan from "morgan";
+// https://expressjs.com/en/guide/using-middleware.html
+import bodyParser from "body-parser";
+import compression from "compression";
+import cookieParser from "cookie-parser";
+import errorHandler from "errorhandler";
+import morgan from "morgan";
 
-// // atlassian-connect-express also provides a middleware
-// import ace from "atlassian-connect-express";
+// atlassian-connect-express also provides a middleware
+import ace from "atlassian-connect-express";
 
-// // Use Handlebars as view engine:
-// // https://npmjs.org/package/express-hbs
-// // http://handlebarsjs.com
-// import hbs from "express-hbs";
+// Use Handlebars as view engine:
+// https://npmjs.org/package/express-hbs
+// http://handlebarsjs.com
+import hbs from "express-hbs";
 
-// // We also need a few stock Node modules
-// import http from "http";
-// import path from "path";
-// import os from "os";
-// import helmet from "helmet";
-// import nocache from "nocache";
+// We also need a few stock Node modules
+import http from "http";
+import path from "path";
+import os from "os";
+import helmet from "helmet";
+import nocache from "nocache";
 
-// // Routes live here; this is the C in MVC
-// import routes from "./routes";
-// import { addServerSideRendering } from "./server-side-rendering";
+// Routes live here; this is the C in MVC
+import routes from "./routes";
+import { addServerSideRendering } from "./server-side-rendering";
 
-// // Bootstrap Express and atlassian-connect-express
-// const app = express();
-// const addon = ace(app);
+// Bootstrap Express and atlassian-connect-express
+console.log("1");
+const app = express();
+console.log("2");
+const addon = ace(app);
 
-// // See config.json
-// const port = addon.config.port();
-// app.set("port", port);
+console.log("3");
+// See config.json
+const port = addon.config.port();
+app.set("port", port);
+console.log("4");
 
-// // Log requests, using an appropriate formatter by env
-// const devEnv = app.get("env") === "development";
-// console.log("devEnv", devEnv);
-// app.use(morgan(devEnv ? "dev" : "combined"));
 
-// // Configure Handlebars
-// const viewsDir = path.join(__dirname, "views");
-// const handlebarsEngine = hbs.express4({ partialsDir: viewsDir });
-// app.engine("hbs", handlebarsEngine);
-// app.set("view engine", "hbs");
-// app.set("views", viewsDir);
+// Log requests, using an appropriate formatter by env
+const devEnv = app.get("env") === "development";
+console.log("5");
+console.log("devEnv", devEnv);
+console.log("6");
+app.use(morgan(devEnv ? "dev" : "combined"));
+console.log("7");
 
-// // Configure jsx (jsx files should go in views/ and export the root component as the default export)
-// addServerSideRendering(app, handlebarsEngine);
+// Configure Handlebars
+const viewsDir = path.join(__dirname, "views");
+const handlebarsEngine = hbs.express4({ partialsDir: viewsDir });
+app.engine("hbs", handlebarsEngine);
+app.set("view engine", "hbs");
+app.set("views", viewsDir);
 
-// // Atlassian security policy requirements
-// // http://go.atlassian.com/security-requirements-for-cloud-apps
-// // HSTS must be enabled with a minimum age of at least one year
-// app.use(
-//   helmet.hsts({
-//     maxAge: 31536000,
-//     includeSubDomains: false,
-//   })
-// );
-// app.use(
-//   helmet.referrerPolicy({
-//     policy: ["origin"],
-//   })
-// );
+// Configure jsx (jsx files should go in views/ and export the root component as the default export)
+addServerSideRendering(app, handlebarsEngine);
 
-// // Include request parsers
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
+// Atlassian security policy requirements
+// http://go.atlassian.com/security-requirements-for-cloud-apps
+// HSTS must be enabled with a minimum age of at least one year
+app.use(
+  helmet.hsts({
+    maxAge: 31536000,
+    includeSubDomains: false,
+  })
+);
+app.use(
+  helmet.referrerPolicy({
+    policy: ["origin"],
+  })
+);
 
-// // Gzip responses when appropriate
-// app.use(compression());
+// Include request parsers
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-// // Include atlassian-connect-express middleware
-// app.use(addon.middleware());
+// Gzip responses when appropriate
+app.use(compression());
 
-// // Mount the static files directory
-// const staticDir = path.join(__dirname, "public");
-// app.use(express.static(staticDir));
+// Include atlassian-connect-express middleware
+app.use(addon.middleware());
 
-// // Atlassian security policy requirements
-// // http://go.atlassian.com/security-requirements-for-cloud-apps
-// app.use(nocache());
+// Mount the static files directory
+const staticDir = path.join(__dirname, "public");
+app.use(express.static(staticDir));
 
-// // Show nicer errors in dev mode
-// if (devEnv) app.use(errorHandler());
+// Atlassian security policy requirements
+// http://go.atlassian.com/security-requirements-for-cloud-apps
+app.use(nocache());
 
-// // Wire up routes
-// routes(app, addon);
+// Show nicer errors in dev mode
+if (devEnv) app.use(errorHandler());
 
-// // Boot the HTTP server
-// http.createServer(app).listen(port, () => {
-//   console.log("App server running at http://" + os.hostname() + ":" + port);
+// Wire up routes
+routes(app, addon);
 
-//   // Enables auto registration/de-registration of app into a host in dev mode
-//   if (devEnv) addon.register();
-// });
+// Boot the HTTP server
+http.createServer(app).listen(port, () => {
+  console.log("App server running at http://" + os.hostname() + ":" + port);
 
-console.log(process.env.PORT);
+  // Enables auto registration/de-registration of app into a host in dev mode
+  if (devEnv) addon.register();
+});
+
+// console.log(process.env.PORT);
