@@ -93,9 +93,9 @@ if (devEnv) app.use(errorHandler());
 routes(app, addon);
 
 // Boot the HTTP server
-http.createServer(app).listen(process.env.port, () => {
+http.createServer(app).listen(process.env.PORT, () => {
   console.log(
-    "App server running at http://" + os.hostname() + ":" + process.env.port
+    "App server running at http://" + os.hostname() + ":" + process.env.PORT
   );
 
   // Enables auto registration/de-registration of app into a host in dev mode
