@@ -1,0 +1,34 @@
+{
+  "key": "my-app",
+  "name": "My app",
+  "description": "My very first app",
+  "baseUrl": "{{localBaseUrl}}",
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed"
+  },
+  "scopes": ["READ"],
+  "apiMigrations": {
+    "signed-install": true
+  },
+  "modules": {
+    "dynamicContentMacros": [
+      {
+        "key": "hello",
+        "height": "1px",
+        "width": "1px",
+        "name": {
+          "value": "Hello World App"
+        },
+        "url": "/audio",
+        "description": {
+          "value": "Audio Recorder App"
+        },
+        "outputType": "inline",
+        "bodyType": "none"
+      }
+    ]
+  }
+}
