@@ -59,11 +59,13 @@ app.set("view engine", "hbs");
 app.set("views", viewsDir);
 
 // Configure jsx (jsx files should go in views/ and export the root component as the default export)
+console.log("8");
 addServerSideRendering(app, handlebarsEngine);
 
 // Atlassian security policy requirements
 // http://go.atlassian.com/security-requirements-for-cloud-apps
 // HSTS must be enabled with a minimum age of at least one year
+console.log("9");
 app.use(
   helmet.hsts({
     maxAge: 31536000,
@@ -75,6 +77,7 @@ app.use(
     policy: ["origin"],
   })
 );
+console.log("10");
 
 // Include request parsers
 app.use(bodyParser.json());
@@ -84,6 +87,7 @@ app.use(cookieParser());
 // Gzip responses when appropriate
 app.use(compression());
 
+console.log("11");
 // Include atlassian-connect-express middleware
 app.use(addon.middleware());
 
@@ -93,15 +97,18 @@ app.use(express.static(staticDir));
 
 // Atlassian security policy requirements
 // http://go.atlassian.com/security-requirements-for-cloud-apps
+console.log("12");
 app.use(nocache());
 
 // Show nicer errors in dev mode
 if (devEnv) app.use(errorHandler());
 
+console.log("12");
 // Wire up routes
 routes(app, addon);
 
 // Boot the HTTP server
+console.log("12");
 http.createServer(app).listen(port, () => {
   console.log("App server running at http://" + os.hostname() + ":" + port);
 
