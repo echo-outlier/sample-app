@@ -29,6 +29,13 @@
         "outputType": "inline",
         "bodyType": "none"
       }
-    ]
+    ],
+    "configurePage": {
+      "url": "/my-config-page",
+      "name": {
+        "value": "My Configure Page"
+      },
+      "key": "my-config-page"
+    }
   }
 }
