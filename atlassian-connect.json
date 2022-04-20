@@ -9,7 +9,7 @@
   "lifecycle": {
     "installed": "/installed"
   },
-  "scopes": ["READ"],
+  "scopes": ["READ", "WRITE"],
   "apiMigrations": {
     "signed-install": true
   },
@@ -20,22 +20,31 @@
         "height": "1px",
         "width": "1px",
         "name": {
-          "value": "Hello World App"
+          "value": "AudioDigest"
         },
         "url": "/audio",
         "description": {
           "value": "Audio Recorder App"
         },
         "outputType": "inline",
-        "bodyType": "none"
+        "bodyType": "none",
+        "editor": {
+          "url": "/custom",
+          "insertTitle": {
+            "value": "Audio Digest"
+          },
+          "height": "450px",
+          "width": "1000px",
+          "description": {
+            "value": "editor to display previous recording"
+          },
+          "bodyType": "rich-text",
+          "name": {
+            "value": "previous Recording"
+          },
+          "key": "prev-recording"
+        }
       }
-    ],
-    "configurePage": {
-      "url": "/my-config-page",
-      "name": {
-        "value": "My Configure Page"
-      },
-      "key": "my-config-page"
-    }
+    ]
   }
 }

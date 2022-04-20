@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/popup.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/addon.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="//aui-cdn.atlassian.com/aui-adg/5.8.12/css/aui.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="//aui-cdn.atlassian.com/aui-adg/5.8.12/css/aui-experimental.css"
+      media="all"
+    />
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script type="text/javascript" src="/js/recorder.js" defer></script>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <!-- <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script> -->
+  </head>
+
+  <body>
+    <div class="popup-container">
+      <div class="icon-and-audio-player">
+        <div class="buttons">
+          <div class="svg-icon" id="svg-icon">
+            <svg
+              width="43"
+              height="43"
+              viewBox="0 0 29 46"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17C12.7533 22.9671 16.0431 22.7326 22 17V23.5C22 27.6421 18.6421 31 14.5 31C10.3579 31 7 27.6421 7 23.5V17Z"
+                fill="url(#paint0_linear_203_2380)"
+              />
+              <path
+                d="M19.3333 46H9.66667C8.7 46 8.05556 45.3655 8.05556 44.4138C8.05556 43.4621 8.7 42.8276 9.66667 42.8276H12.8889V38.069C0.161111 37.1172 0 25.5379 0 25.3793C0 24.4276 0.644444 23.7931 1.61111 23.7931C2.57778 23.7931 3.22222 24.4276 3.22222 25.3793C3.22222 26.331 3.54444 34.8966 14.5 34.8966C25.6167 34.8966 25.7778 25.6966 25.7778 25.3793C25.7778 24.4276 26.4222 23.7931 27.3889 23.7931C28.3556 23.7931 29 24.4276 29 25.3793C29 25.5379 28.8389 37.1172 16.1111 38.069V42.8276H19.3333C20.3 42.8276 20.9444 43.4621 20.9444 44.4138C20.9444 45.3655 20.3 46 19.3333 46ZM14.5 31.7241C8.05556 31.7241 6.44444 26.4897 6.44444 23.7931V7.93103C6.44444 5.23448 8.05556 0 14.5 0C20.9444 0 22.5556 5.23448 22.5556 7.93103V23.7931C22.5556 26.4897 20.9444 31.7241 14.5 31.7241ZM14.5 3.17241C9.98889 3.17241 9.66667 7.13793 9.66667 7.93103V23.7931C9.66667 24.5862 9.98889 28.5517 14.5 28.5517C19.0111 28.5517 19.3333 24.5862 19.3333 23.7931V7.93103C19.3333 7.13793 19.0111 3.17241 14.5 3.17241Z"
+                fill="#253858"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_203_2380"
+                  x1="14.5"
+                  y1="17"
+                  x2="14.5"
+                  y2="31"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFAB00" />
+                  <stop offset="1" stop-color="#FFC400" stop-opacity="0.6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="stop-button tooltip" id="stop-button"> <span class="tooltiptext">Stop</span></div>
+          <div class="reload-button tooltip" id="reload-button">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 20 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.45948 0.855639C5.33948 1.35564 2.09948 4.99564 2.01948 9.13563H0.399512C0.0995694 9.13563 -0.100488 9.47561 0.0595304 9.73567L2.45949 13.5757C2.61951 13.8156 2.95949 13.8156 3.11949 13.5757L5.51946 9.73567C5.67948 9.47562 5.49951 9.13563 5.17948 9.13563H3.55951C3.65954 5.6556 6.39951 2.69564 9.89951 2.39564C14.2195 2.03571 17.8195 5.65567 17.3995 9.99563C17.0795 13.2756 14.4395 15.8956 11.1595 16.1956C9.29958 16.3756 7.55951 15.7957 6.21951 14.7357C6.03955 14.5956 5.75955 14.6356 5.63958 14.8357L5.21951 15.4758C5.09953 15.6557 5.13957 15.8958 5.29945 16.0158C6.83949 17.2159 8.81942 17.8958 10.9595 17.7958C15.2995 17.5556 18.7995 14.0154 18.9995 9.67544C19.2195 4.47545 14.7395 0.215454 9.45945 0.855454L9.45948 0.855639Z"
+                fill="white"
+              />
+            </svg>
+            <span class="tooltiptext">Restart</span>
+          </div>
+          <div class="play-button tooltip" id="play-button">
+            
+            <svg
+              width="13"
+              height="19"
+              viewBox="0 0 13 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="svg"
+            >
+              <path
+                d="M12.0208 10.075L1.06114 18.1132C0.842244 18.2741 0.572699 18.2741 0.353788 18.1135C0.134888 17.9527 0 17.6562 0 17.3349V1.25847C0 0.937102 0.134888 0.6406 0.353788 0.479798C0.572687 0.319267 0.842463 0.319267 1.06137 0.480091L12.0211 8.51829C12.24 8.67882 12.3746 8.97562 12.3746 9.29666C12.3746 9.61769 12.2397 9.91454 12.0208 10.075Z"
+                fill="#253858"
+              ></path>
+            </svg>
+            <span class="tooltiptext">Start&Pause</span>
+          </div>
+          <div class="audio-timer" id="audio-timer">00:00</div>
+        </div>
+      </div>
+
+      <div class="audio-player" id="audio-player"></div>
+
+      <div id="saving-title" class="saving-title">
+        <form class="aui">
+          <div class="field-group">
+            <div class="input">
+              <input
+                class="audio-title-input"
+                type="text"
+                id="audio-title-input"
+                name="audio-title-input"
+                title="Text input"
+                placeholder="Audio Title"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+        </form>
+        <button
+          onclick="finalSaveRecording()"
+          class="aui-button aui-button-primary save-recording-btn"
+        >
+          Save Recording!
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<style>
+  section {
+    overflow-y: hidden;
+  }
+</style>

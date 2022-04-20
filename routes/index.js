@@ -1,3 +1,8 @@
+import {
+  CloudWatchClient,
+  PutMetricDataCommand,
+} from "@aws-sdk/client-cloudwatch";
+
 export default function routes(app, addon) {
   // Redirect root path to /atlassian-connect.json,
   // which will be served by atlassian-connect-express.
@@ -11,21 +16,46 @@ export default function routes(app, addon) {
     // Rendering a template is easy; the render method takes two params: the name of the component or template file, and its props.
     // Handlebars and jsx are both supported, but please note that jsx changes require `npm run watch-jsx` in order to be picked up by the server.
     res.render(
-      "hello-world.hbs", // change this to 'hello-world.jsx' to use the Atlaskit & React version
+      "home.hbs", // change this to 'hello-world.jsx' to use the Atlaskit & React version
       {
         title: "Atlassian Connect",
       }
     );
   });
 
-  app.get("/my-config-page", (req, res) => {
+  app.get("/custom", async (req, res) => {
     // Rendering a template is easy; the render method takes two params: the name of the component or template file, and its props.
     // Handlebars and jsx are both supported, but please note that jsx changes require `npm run watch-jsx` in order to be picked up by the server.
+    const config = { region: "us-east-2" };
+    console.log("context", req.context.localBaseUrl);
+    const input_params = {
+      MetricData: [
+        {
+          MetricName: "APP_INITIALIZED",
+          Dimensions: [{ Name: "NUMBER_OF_TIMES_INITIALIZED", Value: "1" }],
+          Unit: "None",
+          Value: 1,
+        },
+      ],
+      Namespace: "SITE/TRAFFIC",
+    };
+
+    const client = new CloudWatchClient(config);
+    const command = new PutMetricDataCommand(input_params);
+    const response = await client.send(command);
+    console.log("response", response);
+
     res.render(
-      "config.hbs", // change this to 'hello-world.jsx' to use the Atlaskit & React version
+      "custom.hbs", // change this to 'hello-world.jsx' to use the Atlaskit & React version
       {
+        baseUrl: req.context.localBaseUrl,
         title: "Atlassian Connect",
       }
     );
+  });
+
+  app.get("/uploadmetric", (req, res) => {
+    const body = req.body;
+    res.status(200).send({ hello: "this is yash" });
   });
 }

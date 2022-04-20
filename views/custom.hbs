@@ -1,0 +1,153 @@
+{{!< layout}}
+<style>
+  section { height: calc(100vh - 20px); }
+
+</style>
+<script type="text/javascript" src="/js/main.js"></script>
+<script>
+  console.log('baseUrlasdf',"{{baseUrl}}") AP.request({ url: '{{baseUrl}}/uploadmetric',
+  type: 'GET', success: function(responseText){ console.log(responseText); },
+  error: function(xhr, statusText, errorThrown){ console.log(arguments); } });
+
+</script>
+
+<div class="main-container">
+  <div class="container-1">
+
+    <div class="heading">
+      <div class="sub-heading-1">
+        The quickest way to escape from reading text
+      </div>
+      <div class="sub-heading-2">
+        Hit start recording button to get started
+      </div>
+    </div>
+
+    <div class="outer-circle">
+      <div class="inner-circle">
+        <div class="subinner-circle">
+          <div class="audio-icon"><svg
+              width="57"
+              height="92"
+              viewBox="0 0 57 92"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g filter="url(#filter0_i_71_2500)">
+                <path
+                  d="M38 91.3594H19C17.1 91.3594 15.8333 90.1043 15.8333 88.2215C15.8333 86.3387 17.1 85.0836 19 85.0836H25.3333V75.6698C0.316666 73.787 0 50.8801 0 50.5663C0 48.6836 1.26667 47.4284 3.16667 47.4284C5.06667 47.4284 6.33333 48.6836 6.33333 50.5663C6.33333 52.4491 6.96667 69.3939 28.5 69.3939C50.35 69.3939 50.6667 51.1939 50.6667 50.5663C50.6667 48.6836 51.9333 47.4284 53.8333 47.4284C55.7333 47.4284 57 48.6836 57 50.5663C57 50.8801 56.6833 73.787 31.6667 75.6698V85.0836H38C39.9 85.0836 41.1667 86.3387 41.1667 88.2215C41.1667 90.1043 39.9 91.3594 38 91.3594ZM28.5 63.1181C15.8333 63.1181 12.6667 52.7629 12.6667 47.4284V16.0491C12.6667 10.7146 15.8333 0.359436 28.5 0.359436C41.1667 0.359436 44.3333 10.7146 44.3333 16.0491V47.4284C44.3333 52.7629 41.1667 63.1181 28.5 63.1181ZM28.5 6.6353C19.6333 6.6353 19 14.4801 19 16.0491V47.4284C19 48.9974 19.6333 56.8422 28.5 56.8422C37.3667 56.8422 38 48.9974 38 47.4284V16.0491C38 14.4801 37.3667 6.6353 28.5 6.6353Z"
+                  fill="#0747A6"
+                ></path>
+              </g>
+              <defs>
+                <filter
+                  id="filter0_i_71_2500"
+                  x="0"
+                  y="-0.944047"
+                  width="57"
+                  height="92.3035"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood
+                    flood-opacity="0"
+                    result="BackgroundImageFix"
+                  ></feFlood>
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="BackgroundImageFix"
+                    result="shape"
+                  ></feBlend>
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  ></feColorMatrix>
+                  <feOffset dy="-1.30348"></feOffset>
+                  <feGaussianBlur stdDeviation="1"></feGaussianBlur>
+                  <feComposite
+                    in2="hardAlpha"
+                    operator="arithmetic"
+                    k2="-1"
+                    k3="1"
+                  ></feComposite>
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.00302083 0 0 0 0 0.0504422 0 0 0 0 0.120833 0 0 0 0.31 0"
+                  ></feColorMatrix>
+                  <feBlend
+                    mode="normal"
+                    in2="shape"
+                    result="effect1_innerShadow_71_2500"
+                  ></feBlend>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="aui-button aui-button-primary start-recording-btn"
+      onclick="openPopupWindowForRecording()"
+    >
+      Start Recording
+    </div>
+
+  </div>
+
+  <div class="container-2" id="container-2">
+    <div class="sub-container-1">
+      <div class="sub-container-1-title">Previous Recordings</div>
+      <div class="sub-container-1-searchbar">
+        <form class="aui">
+          <div class="field-group">
+            <div class="search-bar">
+              <div class="input">
+                <input
+                  class="text"
+                  type="text"
+                  id="text-input"
+                  name="text-input"
+                  title="Text input"
+                  placeholder="Search"
+                  onkeyup="searchAndFilterAudioRecordings()"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="search-icon">
+                <svg
+                  width="24"
+                  height="29"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="22.5138"
+                    height="22.5138"
+                    transform="translate(0.981445 0.743164)"
+                    fill="white"
+                    fill-opacity="0.01"
+                  ></rect>
+                  <path
+                    d="M14.8866 15.6426C13.8448 16.4324 12.542 16.7973 11.2415 16.6635C9.94097 16.5297 8.73976 15.9072 7.88061 14.9218C7.02147 13.9363 6.56845 12.6615 6.61312 11.3549C6.65779 10.0483 7.19682 8.8074 8.12127 7.88295C9.04571 6.95851 10.2866 6.41948 11.5932 6.37481C12.8998 6.33014 14.1747 6.78315 15.1601 7.6423C16.1455 8.50145 16.768 9.70265 16.9018 11.0031C17.0356 12.3036 16.6708 13.6064 15.8809 14.6482L18.364 17.1313C18.6389 17.4062 18.8612 17.6848 18.364 18.1257C17.8668 18.5666 17.6445 18.4005 17.3696 18.1257L14.8866 15.6426ZM11.7693 15.2833C12.7645 15.2833 13.7189 14.888 14.4226 14.1843C15.1263 13.4806 15.5216 12.5262 15.5216 11.531C15.5216 10.5359 15.1263 9.58144 14.4226 8.87775C13.7189 8.17406 12.7645 7.77873 11.7693 7.77873C10.7742 7.77873 9.81975 8.17406 9.11606 8.87775C8.41237 9.58144 8.01704 10.5359 8.01704 11.531C8.01704 12.5262 8.41237 13.4806 9.11606 14.1843C9.81975 14.888 10.7742 15.2833 11.7693 15.2833Z"
+                    fill="#42526E"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="all-audio">
+
+    </div>
+
+  </div>
+</div>

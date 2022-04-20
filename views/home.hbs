@@ -1,0 +1,84 @@
+{{!< layout}}
+<style>
+  section{ overflow-y: hidden; }
+</style>
+
+<div class="main-container-home">
+
+  <div class="sub-container-home">
+    <div class="page-summary-and-speed-control-home">
+      <div class="avatar-home"><img
+          id="final-avatar-image"
+          src="images/index.png"
+          alt=""
+        /></div>
+      <div class="page-summary-home" id="final-audio-title">Page Summary</div>
+    </div>
+    <div>
+      <div class="speed-control-home">
+        <div class="x-1 selected-home" id="speedNormal" onclick="speed1()">1x</div>
+        <div class="x-15" id="speedHalfmore" onclick="speed15()">1.5x</div>
+        <div class="x-2" id="speedDouble" onclick="speed2()">2x</div>
+      </div>
+    </div>
+    <div class="audio-slider-container-home">
+      <div class="play-and-pause-svg" id="home-play-pause-button" onclick="playAndpauseControls()">
+         <svg
+      width="10"
+      height="15"
+      viewBox="0 0 13 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="svg"
+    >
+    <path
+        d="M12.0208 10.075L1.06114 18.1132C0.842244 18.2741 0.572699 18.2741 0.353788 18.1135C0.134888 17.9527 0 17.6562 0 17.3349V1.25847C0 0.937102 0.134888 0.6406 0.353788 0.479798C0.572687 0.319267 0.842463 0.319267 1.06137 0.480091L12.0211 8.51829C12.24 8.67882 12.3746 8.97562 12.3746 9.29666C12.3746 9.61769 12.2397 9.91454 12.0208 10.075Z"
+        fill="#253858"
+      ></path>
+    </svg>
+      </div>
+
+      <div class="audio-slider">
+        <audio id="home-audio-player" src="" preload="metadata"></audio>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+          id="home-audio-slider"
+          class="audio-slider"
+        /></div>
+      <div class="audio-timer-home" id="home-audio-length">0:00</div>
+      <div class="mute-svg-home" id="home-audio-mute" onclick="setmuteaudio()">
+        <svg
+          width="18"
+          height="13"
+          viewBox="0 0 23 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.653498 14.1518H5.39075L12.2843 17.7897C12.3823 17.8233 12.4803 17.8571 12.5783 17.8571C12.7089 17.8571 12.8071 17.8235 12.9051 17.7561C13.1011 17.6214 13.2319 17.4191 13.2319 17.1835V0.678226C13.2319 0.442323 13.1014 0.24026 12.9051 0.105626C12.7092 -0.0290084 12.4803 -0.0290077 12.2518 0.0720273L5.39085 3.70949H0.653364C0.29397 3.70949 0 4.0126 0 4.38312V13.4778C0 13.8486 0.261398 14.1517 0.653364 14.1517L0.653498 14.1518ZM11.8924 16.0716L6.01156 12.9727L6.01179 4.88851L11.8926 1.78957L11.8924 16.0716ZM1.30692 5.05693H4.73744V12.8043L1.30692 12.804V5.05693Z"
+            fill="#253858"
+          ></path>
+          <path
+            d="M15.4856 11.6253V12.9725C17.4785 12.9725 19.0795 11.3219 19.0795 9.26714C19.0795 7.21235 17.4786 5.56177 15.4856 5.56177V6.90901C16.7598 6.90901 17.7725 7.95316 17.7725 9.26684C17.7725 10.581 16.7598 11.6252 15.4856 11.6252V11.6253Z"
+            fill="#253858"
+          ></path>
+          <path
+            d="M15.4856 1.52051V2.86775C18.9161 2.86775 21.6931 5.73103 21.6931 9.26774C21.6931 12.8046 18.9159 15.6677 15.4856 15.6677V17.015C19.6349 17.015 22.9999 13.5455 22.9999 9.26762C22.9999 4.99016 19.6348 1.52087 15.4856 1.52087V1.52051Z"
+            fill="#253858"
+          ></path>
+        </svg>
+     
+
+      </div>
+      {{!-- <audio id="home-audio-player" src="" controls="true" preload="metadata"></audio> --}}
+    </div> 
+
+  </div>
+
+</div>
+
+<script  type="text/javascript" src="/js/home.js"></script>
+ 

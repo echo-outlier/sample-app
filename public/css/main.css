@@ -1,0 +1,37 @@
+:root {
+  --primary-color: #0747a6;
+  --secondary-color: #deebff;
+  --dark-primary: #172b4d;
+  --dark-secondary: #253858;
+  --light: #cce0ff;
+  --very-light: #ebf3ff;
+  --gray: #e8e8e8;
+  --light-gray: #ccc;
+  --hover: #2760b5;
+}
+
+.field-group {
+  position: relative;
+  padding: 0px !important;
+}
+
+.aui-button.aui-button-primary {
+  background-color: var(--primary-color);
+  padding: 10px 40px;
+  height: auto;
+}
+
+input {
+  outline-offset: 0px;
+}
+
+.aui-button.aui-button-primary:hover {
+  background-color: var(--hover);
+}
+
+#all-audio {
+  overflow: auto;
+}
+.aui-button.ap-aui-button.ap-aui-dialog-button.aui-button-primary {
+  background-color: green;
+}

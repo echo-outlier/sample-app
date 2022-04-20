@@ -1,0 +1,101 @@
+input[type="range"] {
+  position: relative;
+  -webkit-appearance: none;
+  width: 180px;
+  margin: 0;
+  padding: 0;
+  height: 19px;
+  background: transparent;
+  /* drop */
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #c4c4c4;
+}
+input[type="range"]::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: var(--seek-before-width);
+  height: 5px;
+  background-color: #0747a6;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  border: 2px solid #0747a6;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  margin: -7px 0 0 0;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #c4c4c4;
+  /* background: linear-gradient(
+    to right,
+    rgba(0, 125, 181, 0.6) var(--buffered-width),
+    rgba(0, 125, 181, 0.2) var(--buffered-width)
+  ); */
+}
+input[type="range"]::-moz-range-progress {
+  background-color: #0747a6;
+  height: 5px;
+  border-radius: 3px;
+}
+input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+input[type="range"]::-moz-range-thumb {
+  box-sizing: content-box;
+  border: 2px solid #0747a6;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: solid transparent;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background-color: #0747a6;
+  height: 5px;
+  border-radius: 3px;
+}
+input[type="range"]::-ms-fill-upper {
+  background: linear-gradient(
+    to right,
+    rgba(0, 125, 181, 0.6) var(--buffered-width),
+    rgba(0, 125, 181, 0.2) var(--buffered-width)
+  );
+}
+input[type="range"]::-ms-thumb {
+  box-sizing: content-box;
+  border: 2px solid #0747a6;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
